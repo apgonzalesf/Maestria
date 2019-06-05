@@ -28,7 +28,7 @@ FOR i IN 1..10     LOOP
 	begin 
 	  for vProducto in (SELECT * FROM producto SAMPLE(10) ) 
 		LOOP  
-		SELECT  floor(DBMS_RANDOM.VALUE(0,2))  into vRandom2  FROM dual; 
+		SELECT  floor(DBMS_RANDOM.VALUE(0,15))  into vRandom2  FROM dual; 
 		INSERT INTO venta_detalle  (     tip_doc,     num_doc,     SKU,     CANTIDAD,     MTO_UNID  ) 
 		VALUES ( vTipo,     vNumDoc,     vProducto.sku  ,     vRandom2    ,    vProducto.MTO_UNID   );   			 
 	  end loop; 
